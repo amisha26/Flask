@@ -18,6 +18,22 @@ def user_signup():
 def returnListOfUsers():
     return jsonify(user_db)
 
+@app.route('/login', methods=['POST'])
+def func():
+    data = request.get_json()
+    print(data)
+    user, passd = data["user"], data["passd"]
+
+    if user in user_db:
+        if user_db[user]==passd:
+            return "Success", 200
+        else:
+            return jsonify({"msg":"password in invalid"}) 
+   
+    else:
+        return jsonify({"msg":"User does not exist. Signup instead"})
+        #return user_signup(user, passd)
+
         
 if __name__ == '__main__':
     app.run(debug=True)
