@@ -14,6 +14,10 @@ def user_signup():
     print(user_db,"---> user db")
     return jsonify({"msg":"signup successful"})
 
+@app.route('/list')
+def returnListOfUsers():
+    return jsonify(user_db)
+
         
 if __name__ == '__main__':
     app.run(debug=True)
