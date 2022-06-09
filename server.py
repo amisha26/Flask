@@ -17,7 +17,17 @@ def func4():
     data = request.args
     return data["surname"]
 
-    
+@app.route('/login',methods=['POST'])
+def func2():
+    data = request.get_json()
+    return data
+
+@app.route('/log',methods=['POST','GET'])
+def func3():
+    if request.method=='POST':
+        return jsonify({"msg":"method is post"})
+    elif request.method=='GET':
+        return jsonify({"msg":"method is get"}) 
 
 if __name__=='__main__':
     app.run(debug=True)
