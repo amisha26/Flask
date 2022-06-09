@@ -23,7 +23,14 @@ def func():
     data = request.get_json()
     print(data)
     user, passd = data["user"], data["passd"]
-
+    """ for i in user_db:
+        if i==user:
+            val = user_db[i]
+            print(val, "val")
+            if passd == val:
+                return "Success", 200
+            else:
+                return jsonify({"msg":"password in invalid"}) """
     if user in user_db:
         if user_db[user]==passd:
             return "Success", 200
