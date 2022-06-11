@@ -27,7 +27,16 @@ def login():
     else:
         return jsonify({"msg":"User not available. Signup instead"})
 
+@app.route('/x')
+def hit_x(flag):
+    if flag==False:
+        return jsonify({"msg":"login first"})
+    else:
+        x = login()
+        
 
+@app.route('/y')
+@app.route('/z')
 
 
 if __name__=='__main__':
